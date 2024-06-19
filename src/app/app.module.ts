@@ -12,6 +12,7 @@ import { MatCardModule } from '@angular/material/card';
 import { IncidentsComponent } from './pages/incidents/incidents.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
+import { IncidentTableComponent } from './pages/incidents/incident-table/incident-table.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AboutComponent } from './pages/about/about.component';
     HeaderComponent,
     IncidentsComponent,
     HomeComponent,
-    AboutComponent
+    AboutComponent,
+    IncidentTableComponent
   ],
   imports: [
     BrowserModule,
