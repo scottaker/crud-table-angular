@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ComplaintResponse } from 'src/app/models';
 
 @Component({
   selector: 'app-incidents',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IncidentsComponent implements OnInit {
 
-  constructor() { }
+  // data:ComplaintResponse;
+  data: ComplaintResponse | undefined;
+  constructor() {
+    // this.data = null;
+  }
 
   ngOnInit(): void {
   }
