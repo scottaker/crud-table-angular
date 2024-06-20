@@ -47,9 +47,8 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
     // STORE
     StoreModule.forRoot({}, {}),
     StoreModule.forRoot(reducers, { metaReducers }),
-
+    StoreModule.forFeature('complaints', reducers.complaints),
     EffectsModule.forRoot(),
-
     EffectsModule.forFeature([ComplaintsEffects]),
     // isDevMode() ? StoreDevtoolsModule.instrument() : [],
   ],

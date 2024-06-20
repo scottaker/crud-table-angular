@@ -10,15 +10,15 @@ import * as fromComplaints from '../complaints/complaints.reducer';
 import { ComplaintsEffects } from 'src/app/store/complaints/complaints.effects';
 
 
-export interface State {
+export interface ApplicationState {
 
   [fromComplaints.complaintsFeatureKey]: fromComplaints.ComplaintState;
 }
 
-export const reducers: ActionReducerMap<State> = {
+export const reducers: ActionReducerMap<ApplicationState> = {
 
   [fromComplaints.complaintsFeatureKey]: fromComplaints.reducer,
 };
 
 export const effects: Array<any> = [ComplaintsEffects];
-export const metaReducers: MetaReducer<State>[] = isDevMode() ? [] : [];
+export const metaReducers: MetaReducer<ApplicationState>[] = isDevMode() ? [] : [];

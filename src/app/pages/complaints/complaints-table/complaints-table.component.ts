@@ -8,13 +8,14 @@ import { ComplaintResponse } from 'src/app/models/complaint';
 })
 export class ComplaintsTableComponent implements OnInit {
 
-  @Input() data: ComplaintResponse | undefined;
+  @Input() data: ComplaintResponse | undefined | null;
 
   constructor() {
 
   }
 
   ngOnInit(): void {
+    
   }
 
 }

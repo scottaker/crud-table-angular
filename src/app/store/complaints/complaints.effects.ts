@@ -26,7 +26,7 @@ export class ComplaintsEffects {
   complaintsGet$ = createEffect(() =>
     this.actions$.pipe(
       ofType(ComplaintsActions.complaint_get),
-      switchMap(x => this.service.get(x.request).pipe(
+      switchMap(x => this.service.getComplaints(x.request).pipe(
         map(response => this.service.scrubComplaints(response)),
         map(response => ComplaintsActions.complaint_set({ response: <ComplaintResponse>response })),
         catchError(err => this.handleError(err))

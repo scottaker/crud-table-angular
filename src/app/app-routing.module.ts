@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from 'src/app/pages/about/about.component';
+import { ComplaintsComponent } from 'src/app/pages/complaints/complaints.component';
 import { HomeComponent } from 'src/app/pages/home/home.component';
-import { ComplaintsComponent } from 'src/app/pages/incidents/complaints.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent, pathMatch: 'full' },
@@ -15,6 +15,6 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { 
-
+  
 
 }
