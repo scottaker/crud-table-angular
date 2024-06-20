@@ -30,6 +30,9 @@ export interface ComplaintResponse {
     paging: Paging;
     complaints: Array<Complaint>;
 }
+export interface ComplaintRequest {
+    paging: Paging;
+}
 
 export class Paging {
     currentPage: number;
