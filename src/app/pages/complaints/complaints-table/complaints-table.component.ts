@@ -2,11 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ComplaintResponse } from 'src/app/models/complaint';
 
 @Component({
-  selector: 'incident-table',
-  templateUrl: './incident-table.component.html',
-  styleUrls: ['./incident-table.component.scss']
+  selector: 'complaints-table',
+  templateUrl: './complaints-table.component.html',
+  styleUrls: ['./complaints-table.component.scss']
 })
-export class IncidentTableComponent implements OnInit {
+export class ComplaintsTableComponent implements OnInit {
 
   @Input() data: ComplaintResponse | undefined;
 

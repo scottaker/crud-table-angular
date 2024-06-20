@@ -11,10 +11,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 
 // My Components
-import { IncidentsComponent } from './pages/incidents/incidents.component';
+
 import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
-import { IncidentTableComponent } from './pages/incidents/incident-table/incident-table.component';
+import { ComplaintsComponent } from './pages/complaints/complaints.component';
+import { ComplaintsTableComponent } from './pages/complaints/complaints-table/complaints-table.component';
 
 // STORE
 import { StoreModule, provideStore } from '@ngrx/store';
@@ -22,15 +23,16 @@ import { reducers, metaReducers, effects } from './store/reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule, provideEffects } from '@ngrx/effects';
 import { ComplaintsEffects } from './store/complaints/complaints.effects';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    IncidentsComponent,
+    ComplaintsComponent,
     HomeComponent,
     AboutComponent,
-    IncidentTableComponent
+    ComplaintsTableComponent
   ],
   imports: [
     BrowserModule,
@@ -47,11 +49,12 @@ import { ComplaintsEffects } from './store/complaints/complaints.effects';
     StoreModule.forRoot(reducers, { metaReducers }),
 
     EffectsModule.forRoot(),
-    
+
     EffectsModule.forFeature([ComplaintsEffects]),
     // isDevMode() ? StoreDevtoolsModule.instrument() : [],
   ],
   providers: [
+    provideHttpClient(withInterceptorsFromDi()),
     provideStore(),
     provideEffects([ComplaintsEffects])
   ],
