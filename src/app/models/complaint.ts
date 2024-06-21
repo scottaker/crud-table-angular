@@ -4,7 +4,7 @@ import type { Status, ComplaintType } from "./status";
 
 export interface Complaint {
     id: number;
-    complaintType: ComplaintType;
+    complaintType: any;
     status: Status;
     severity: number;
     description: string;
