@@ -1,78 +1,104 @@
+<div *ngIf="false">
+    {{data|json}}
+</div>
 
-
-<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+<div *ngIf="data" class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="complaint-table w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-                <th scope="col" class="px-6 py-3">
-                    Product name
+                <th scope="col" class="id-cell px-3 py-4">
+                    Id
                 </th>
-                <th scope="col" class="px-6 py-3">
-                    Color
+                <th scope="col" class="px-3 py-4 info-cell">
+                    Info
+                    <!--  Type / Severity / Dates -->
                 </th>
-                <th scope="col" class="px-6 py-3">
-                    Category
+                <th scope="col" class="px-3 py-4">
+                    Description / Resolution
                 </th>
-                <th scope="col" class="px-6 py-3">
-                    Price
+
+                <th scope="col" class="px-3 py-4">
+                    Customer
                 </th>
-                <th scope="col" class="px-6 py-3">
-                    <span class="sr-only">Edit</span>
+
+                <th scope="col" class="px-3 py-4">
+                    Branch / Assignment
+                </th>
+
+                <th scope="col" class="px-3 py-4">
+                    Events
+                </th>
+
+                <th scope="col" class="px-3 py-4">
+                    <span class="sr-only">Actions</span>
                 </th>
             </tr>
         </thead>
+
         <tbody>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Apple MacBook Pro 17"
-                </th>
-                <td class="px-6 py-4">
-                    Silver
+            <tr *ngFor="let complaint of data.complaints"
+                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <td scope="row" class="px-3 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    {{complaint.id}}
                 </td>
-                <td class="px-6 py-4">
-                    Laptop
+                <td class="px-3 py-4 complaint-meta">
+                    <span>{{complaint.complaintType.name}}</span>
+                    <span>{{complaint.severity}} </span>
+                    <span>{{complaint.incidentDate|date:'MM/dd/yyyy'}}</span>
                 </td>
-                <td class="px-6 py-4">
-                    $2999
+                <td class="px-3 py-4">
+                    <div class="py-1 description">{{complaint.description}}</div>
+                    <div class="resolution">{{complaint.resolution}}</div>
                 </td>
-                <td class="px-6 py-4 text-right">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                <td class="px-3 py-4 customer-cell">
+                    <div class="customer-data">
+                        <span>{{complaint.customerLName}}, {{complaint.customerFName}}</span>
+                        <span>{{complaint.customerPhone}}</span>
+                        <span>{{complaint.customerEmail}}</span>
+                    </div>
+                </td>
+                <td class="px-3 py-4">
+                    <span>{{complaint?.branch?.name}}</span>
+                    <span
+                        *ngIf="complaint.employee">{{complaint.employee.last_name}},{{complaint.employee.last_name}}</span>
+                </td>
+
+                <td>
+                    <div class="event-container">
+                        <table class="event-table">
+
+                            <tr *ngFor="let event of complaint.events">
+                                <td class="event-text ">
+                                    <div class="event-date text-xs">
+                                        {{event.timestamp | date: 'MM/dd/yyyy'}}
+                                    </div>
+                                    <div class="event-comments border-b dark:border-gray-700">
+                                        {{ event.comments }}
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </td>
+
+                <td class="px-3 py-4 text-right">
+                    <div class="button-row">
+                        <button type="button"
+                            class="button-simple bg-yellow-600 hover:bg-yellow-500 dark:focus:ring-yellow-900 focus:ring-yellow-300">
+                            <i class="fa-solid fa-pen"></i>
+                            Edit
+                        </button>
+
+                        <button type="button"
+                            class="button-simple bg-red-800 hover:bg-red-500 dark:focus:ring-red-900 focus:ring-red-300">
+                            <i class="fa-solid fa-trash"></i>
+                            Delete
+                        </button>
+                    </div>
                 </td>
             </tr>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Microsoft Surface Pro
-                </th>
-                <td class="px-6 py-4">
-                    White
-                </td>
-                <td class="px-6 py-4">
-                    Laptop PC
-                </td>
-                <td class="px-6 py-4">
-                    $1999
-                </td>
-                <td class="px-6 py-4 text-right">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                </td>
-            </tr>
-            <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Magic Mouse 2
-                </th>
-                <td class="px-6 py-4">
-                    Black
-                </td>
-                <td class="px-6 py-4">
-                    Accessories
-                </td>
-                <td class="px-6 py-4">
-                    $99
-                </td>
-                <td class="px-6 py-4 text-right">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                </td>
-            </tr>
+
         </tbody>
     </table>
 </div>

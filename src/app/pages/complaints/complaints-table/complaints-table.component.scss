@@ -1,0 +1,105 @@
+.button-simple {
+    display: flex;
+    flex-direction: row;
+    @apply focus:outline-none text-white focus:ring-4 font-medium rounded-lg text-sm px-2 py-2.5 me-2 mb-2;
+}
+
+.button-simple>i {
+    padding: 2px;
+    margin-right: 5px;
+}
+
+.button-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.info-cell {
+    width: 100px;
+}
+
+.complaint-meta {
+    display: flex;
+    flex-direction: column;
+}
+
+.customer-cell {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.customer-data {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    /* Number of lines to show */
+    overflow: hidden;
+}
+
+/* EVENTS */
+.event-container {
+    max-height: 100px;
+    overflow: hidden;
+}
+
+.event-date {
+    vertical-align: top;
+}
+
+.event-text {
+    padding-left: 10px;
+    vertical-align: top;
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.event-comments {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    /* Number of lines to show */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    // border-bottom: 1px solid white;
+}
+
+.complaint-table {
+    table-layout: fixed;
+
+    .id-cell {
+        width: 35px;
+    }
+}
+
+.div-table {
+    display: table;
+    width: auto;
+    /* background-color: #eee;
+    border: 1px solid #666666; */
+    border-spacing: 5px;
+    /* cellspacing:poor IE support for  this */
+}
+
+.div-table-row {
+    display: table-row;
+    width: auto;
+    clear: both;
+}
+
+.div-table-col {
+    float: left;
+    /* fix for  buggy browsers */
+    display: table-column;
+    padding: 5px;
+    /* width: 200px; */
+    /* background-color: #ccc; */
+}
