@@ -13,16 +13,10 @@ import { ApplicationState } from 'src/app/store/reducers';
 })
 export class ComplaintsComponent implements OnInit {
 
-  // data:ComplaintResponse;
   complaints$: Observable<ComplaintResponse | undefined>;
 
   constructor(private store: Store<ApplicationState>) {
-    // this.data = null;
-    // this.complaints$ = sel
-    // this.store.select(fromComplaint)
     this.complaints$ = this.store.pipe(select(selectComplaint))
-
-
   }
 
   ngOnInit(): void {

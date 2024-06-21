@@ -1,3 +1,4 @@
+/* buttons */
 .button-simple {
     display: flex;
     flex-direction: row;
@@ -14,6 +15,7 @@
     flex-direction: row;
 }
 
+/* INFO / META */
 .info-cell {
     width: 100px;
 }
@@ -23,23 +25,21 @@
     flex-direction: column;
 }
 
+/* CUSTOMER */
 .customer-cell {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-
 .customer-data {
     display: flex;
     flex-direction: column;
-
 }
 
 .description {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 4;
-    /* Number of lines to show */
     overflow: hidden;
 }
 
@@ -56,10 +56,8 @@
 .event-text {
     padding-left: 10px;
     vertical-align: top;
-
     display: flex;
     flex-direction: column;
-
 }
 
 .event-comments {
