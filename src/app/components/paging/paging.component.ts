@@ -1,14 +1,11 @@
-import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, EventEmitter, Input, Output } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Paging } from 'src/app/models';
-import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'paging',
-  // imports: [MatPaginatorModule],
   templateUrl: './paging.component.html',
   styleUrl: './paging.component.scss',
-  // schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class PagingComponent {
 
