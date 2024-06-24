@@ -8,6 +8,8 @@ export const ComplaintsActions = createActionGroup({
     'complaint': emptyProps(),
     'complaint_get': props<{ request: ComplaintRequest }>(),
     'complaint_set': props<{ response: ComplaintResponse }>(),
+    // 'complaint_request': props<{ request: ComplaintRequest }>(),
+    'complaint_page': props<{ page: number }>(),
     'complaint_success': props<{ data: unknown }>(),
     'complaint_failure': props<{ error: unknown }>(),
   }

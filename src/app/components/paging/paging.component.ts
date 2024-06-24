@@ -17,7 +17,6 @@ export class PagingComponent {
   @Output() page: EventEmitter<number> = new EventEmitter<number>();
 
   onPaging($event: PageEvent) {
-    console.log($event);
     const page = $event.pageIndex;
     this.page.emit(page);
   }

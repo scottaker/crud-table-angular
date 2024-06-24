@@ -1,3 +1,3 @@
 <div class=" incident-table-container">
-    <complaints-table [data]="complaints$|async"></complaints-table>
+    <complaints-table [data]="complaints$|async" (page)="onPaging($event)"></complaints-table>
 </div>

@@ -25,7 +25,7 @@ export class ComplaintsTableComponent implements OnInit {
 
 
   onPaging(value: any) {
-    console.log(value);
+    // console.log(value);
     this.page.emit(value);
   }
 
