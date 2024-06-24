@@ -38,7 +38,6 @@ export interface ComplaintRequest {
 }
 
 export function defaultComplaintRequest(): ComplaintRequest {
-
     return <ComplaintRequest>{
         complaintSort: ComplaintSort.default,
         sortAscending: true,
@@ -53,22 +52,25 @@ export enum ComplaintSort {
     date,
 }
 
-const pageSizeDefault: number = 20;
+const PageSizeDefault: number = 7;
 export class Paging {
     currentPage: number;
     pageSize: number;
+    totalCount: number;
+
     pageCount: number;
 
-    constructor(data: { currentPage: number; pageSize: number; pageCount: number }) {
+    constructor(data: { currentPage: number; pageSize: number; pageCount: number, total: number }) {
         this.currentPage = data.currentPage;
         this.pageSize = data.pageSize;
         this.pageCount = data.pageCount;
+        this.totalCount = data.total;
     }
 
     static default(): Paging {
         return <Paging>{
             currentPage: 1,
-            pageCount: pageSizeDefault
+            pageSize: PageSizeDefault
         }
     }
 }

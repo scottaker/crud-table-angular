@@ -1,0 +1,9 @@
+<div *ngIf="paging" class="flex justify-center pt-4 pb-6">
+
+    <div>{{paging|json}}</div>
+
+    <mat-paginator (page)="onPaging($event)" [pageIndex]="paging.currentPage" [length]="paging.totalCount"
+        [pageSize]="paging.pageSize" aria-label="Select page">
+    </mat-paginator>
+
+</div>
