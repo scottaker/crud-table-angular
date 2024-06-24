@@ -26,6 +26,7 @@ export const reducer = createReducer(
   on(ComplaintsActions.complaint_get, (state, action) => ({
     ...state,
     request: action.request,
+    // complaints: undefined,
     loading: true
   })),
   on(ComplaintsActions.complaint_set, (state, action) => ({

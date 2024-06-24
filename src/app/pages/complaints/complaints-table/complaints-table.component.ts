@@ -13,6 +13,7 @@ export class ComplaintsTableComponent implements OnInit {
 
 
   @Input() data: ComplaintResponse | undefined | null;
+  @Input() loading: boolean | null = false;
   @Output() page: EventEmitter<number> = new EventEmitter<number>();
 
   constructor() {

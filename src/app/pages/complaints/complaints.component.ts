@@ -3,7 +3,7 @@ import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { ComplaintRequest, ComplaintResponse, Paging, defaultComplaintRequest } from 'src/app/models';
 import { ComplaintsActions } from 'src/app/store/complaints/complaints.actions';
-import { selectComplaint, selectComplaintRequest } from 'src/app/store/complaints/complaints.selectors';
+import { selectComplaint, selectComplaintLoading, selectComplaintRequest } from 'src/app/store/complaints/complaints.selectors';
 import { ApplicationState } from 'src/app/store/reducers';
 
 @Component({
@@ -16,11 +16,13 @@ export class ComplaintsComponent implements OnInit {
 
   complaints$: Observable<ComplaintResponse | undefined>;
   request$: Observable<ComplaintRequest | undefined>;
+  loading$: Observable<boolean|null>;
 
   // ----- Startup -----
   constructor(private store: Store<ApplicationState>) {
     this.complaints$ = this.store.pipe(select(selectComplaint))
     this.request$ = this.store.pipe(select(selectComplaintRequest))
+    this.loading$ = this.store.pipe(select(selectComplaintLoading))
   }
 
   ngOnInit(): void {

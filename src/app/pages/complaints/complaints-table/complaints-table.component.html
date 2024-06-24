@@ -1,9 +1,13 @@
 <div *ngIf="false">
     {{data|json}}
+    --{{loading}}--
 </div>
 
-<div *ngIf="data" class="relative overflow-x-auto shadow-md sm:rounded-lg">
-    <table class="complaint-table w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+
+
+    <table [ngClass]="loading?'fade-out-bck ':'fade-in'"
+        class="complaint-table w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="id-cell px-3 py-4">
@@ -36,7 +40,7 @@
         </thead>
 
         <tbody>
-            <tr *ngFor="let complaint of data.complaints"
+            <tr *ngFor="let complaint of data?.complaints"
                 class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <td scope="row" class="px-3 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     {{complaint.id}}
@@ -102,5 +106,5 @@
         </tbody>
     </table>
 
-    <paging [paging]="data.paging" (page)="onPaging($event)"></paging>
+    <paging [paging]="data?.paging" (page)="onPaging($event)"></paging>
 </div>
